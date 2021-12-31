@@ -1,4 +1,5 @@
-const url_api = "http://localhost:5000"
+//const url_api = "http://localhost:5000"
+const url_api="https://pruebabackenalan.herokuapp.com"
 export var LoginCorreoApi = async function (
   correo,
   password
