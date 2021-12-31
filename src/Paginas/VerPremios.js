@@ -93,14 +93,14 @@ const VerPremios = () => {
                         <span className='text-muted'>El premio dejara de aparecer disponible hasta que el usuario lo reclame (canjeo)</span>
                     </div>
                     <div><br></br></div>
-                    <Row md={4} mb={5}>
+                    <Row md={4}  responsive>
 
                         {
                             premios.map((premio, index) => {
                                 if (premio.Estado == '1') {
 
                                     return (
-                                        <Col xs={3}>
+                                        <Col xs lg='3' md="auto">
                                             <Card style={{ width: '18rem', mb: 5 }} key={index}>
                                                 <Card.Img variant="top" src="regalo.png" width={50} height={200} />
                                                 <Card.Body>

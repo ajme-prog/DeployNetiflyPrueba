@@ -193,7 +193,7 @@ const CanjearPremios = () => {
                             {
                                 premios.map((premio, index) => {
                                     return (
-                                        <Col xs={3}>
+                                        <Col xs lg='3' md="auto">
                                             <Card md={{ span: 4, offset: 4 }} style={{ width: '18rem' }} key={index}>
                                                 <Card.Img variant="top" src="regalo.png" width={50} height={200} />
                                                 <Card.Body>

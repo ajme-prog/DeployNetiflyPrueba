@@ -94,7 +94,7 @@ const VerPromociones = () => {
                              
 
                                     return (
-                                        <Col xs={3}>
+                                        <Col xs lg='3' md="auto">
                                             <Card style={{ width: '18rem', mb: 5 }} key={index}>
                                                 <Card.Img variant="top" src="promociones.png" width={50} height={200} />
                                                 <Card.Body>

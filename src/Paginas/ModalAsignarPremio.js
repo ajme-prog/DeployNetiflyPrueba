@@ -112,7 +112,7 @@ function ModaAsingarPremio({ elemento }) {
                                 <span className="visually-hidden">Loading...</span>
                             </Spinner>
                         </div> :
-                        <Table striped bordered hover size="sm">
+                        <Table striped bordered hover size="sm" responsive>
                             <thead>
                                 <tr>
                                     <th>#</th>

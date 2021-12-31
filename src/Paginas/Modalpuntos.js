@@ -73,10 +73,9 @@ function ModalPuntos({ elemento }) {
                 <Modal.Header closeButton>
                     <Modal.Title>Puntos</Modal.Title>
                 </Modal.Header>
-                <Modal.Body>Agrega puntos al usuario!
+                <Modal.Body>Agrega puntos al usuario {elemento.Nombre}
                     <div class="row align-center mb-2 p-2" >
 
-                        <Form.Label >Puntos</Form.Label>
                         <Form.Control ref={puntosRef} placeholder="Ingrese la cantidad de puntos a agregar " />
 
 
