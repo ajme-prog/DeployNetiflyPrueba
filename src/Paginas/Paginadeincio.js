@@ -35,7 +35,7 @@ Ingresa tus datos para acceder al sistema de premios
     </Card.Text>
 
     <div class="row align-center mb-2 p-2" >
-    <Button variant="primary" onClick={handleirtelefono} >Ingresar con No Telefonico</Button>
+    <Button variant="primary" onClick={handleirtelefono} >Ingresar con No Telefónico</Button>
     </div>
     <div class="row align-center mb-2 p-2" >
     <Button variant="primary" onClick={handleircorreo}>Ingresar con email</Button>
