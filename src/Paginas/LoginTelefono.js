@@ -1,12 +1,13 @@
 // Home.js
-import React, {useRef,useContext} from 'react'
-import { Form, FormGroup, Card,FormLabel, FormText, FormControl, Button, Container, Row, Col } from 'react-bootstrap';
+import React, {useRef,useContext,useState} from 'react'
+import { Form, FormGroup, Card,Spinner,FormLabel, FormText, FormControl, Button, Container, Row, Col } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../Context/AuthProvider'
 import Swal from "sweetalert2";
 const LoginTelefono = () => {
     const {usuario,  cerrarSesion, iniciarSesion,iniciarSesionTelefono}=useContext(AuthContext);
     const navigate = useNavigate();
+    const [isLoading, setIsLoading] = useState(false);
     const telefonoRef = useRef();
     const passwordRef = useRef();
 //---componente para el toast
@@ -26,10 +27,11 @@ const Toast = Swal.mixin({
 async function handleSubmit(e) {
     e.preventDefault();
     try {
-   
+      setIsLoading(true);
       const rawResponse = await iniciarSesionTelefono(telefonoRef.current.value,passwordRef.current.value)
       
       if (rawResponse.status==200) {
+        setIsLoading(false);
         Toast.fire({
           icon: "success",
           title: `¡Bienvenido!`,
@@ -45,6 +47,7 @@ async function handleSubmit(e) {
        }
       }else if(rawResponse.status==400) 
        {
+        setIsLoading(false);
         Toast.fire({
           icon: "warning",
           title: `¡Credenciales incorrectas!`,
@@ -54,6 +57,7 @@ async function handleSubmit(e) {
         telefonoRef.current.value = "";
         passwordRef.current.value = "";
       }else {
+        setIsLoading(false);
         Toast.fire({
           icon: "warning",
           title: `¡Ocurrio un error en el servidor!`,
@@ -64,6 +68,7 @@ async function handleSubmit(e) {
       }
     //  setLoading(false);
     } catch (error) {
+      setIsLoading(false);
       console.log(error);
       Toast.fire({
         icon: "error",
@@ -76,6 +81,16 @@ async function handleSubmit(e) {
   
 
     return (
+      isLoading ?
+      <>
+        
+          <div className="bg-light min-vh-100 d-flex flex-row align-items-center justify-content-center">
+              <Spinner animation="border" role="status">
+                  <span className="visually-hidden">Loading...</span>
+              </Spinner>
+          </div>
+      </>
+      :
       <div className="bg-light min-vh-100 d-flex flex-row align-items-center justify-content-center">
       <Card>
 
